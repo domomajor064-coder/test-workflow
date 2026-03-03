@@ -1,40 +1,29 @@
 # Test Workflow Project
 
-A simple Python project to demonstrate the dual worker workflow (Minimax Developer + Kimi Reviewer).
+A simple Python project demonstrating the dual worker workflow (Minimax Developer + Kimi Reviewer).
 
-## What This Project Does
-
-This is a minimal test project that verifies the automated development workflow is functioning correctly. It includes a simple Python script that prints a greeting message.
-
-## Files
-
-- **hello.py** - A simple script that prints "Hello from Minimax Worker!"
-- **test_hello.py** - A basic test to verify the script runs correctly
-
-## Running the Script
+## Quick Start
 
 ```bash
-python hello.py
+python3 hello.py
 ```
 
-Expected output: `Hello from Minimax Worker!`
+## Output
 
-## Running Tests
+```
+Hello from Minimax Worker!
+```
+
+## Testing
+
+Run the test to verify the script works:
 
 ```bash
-python -m pytest
+python3 -c "import subprocess; result = subprocess.run(['python3', 'hello.py'], capture_output=True, text=True); print(result.stdout.strip())"
 ```
 
-Or directly:
+## Project Structure
 
-```bash
-python test_hello.py
-```
-
-## Purpose
-
-This project serves as a test case for the dual worker development workflow:
-1. **Minimax Developer** implements the code
-2. **Kimi Reviewer** reviews the pull request
-
-The workflow ensures code quality through automated testing and peer review.
+- `hello.py` - Main script that prints a greeting
+- `README.md` - This file
+- `DESIGN.md` - Project requirements and acceptance criteria

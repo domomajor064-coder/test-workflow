@@ -1,23 +1,22 @@
 #!/usr/bin/env python3
-"""Tests for hello.py"""
-
+"""Simple test to verify hello.py runs correctly."""
 import subprocess
 import sys
 
-
-def test_hello_output():
-    """Test that hello.py prints the expected greeting."""
+def test_hello():
+    """Test that hello.py prints the correct greeting."""
     result = subprocess.run(
         [sys.executable, "hello.py"],
         capture_output=True,
         text=True,
         cwd="/Users/majordomo/clawd/test-workflow"
     )
-    assert result.returncode == 0, f"Script failed with exit code {result.returncode}"
-    assert "Hello from Minimax Worker!" in result.stdout, f"Unexpected output: {result.stdout}"
-    print("✅ Test passed: hello.py outputs correctly")
-
+    
+    expected = "Hello from Minimax Worker!"
+    actual = result.stdout.strip()
+    
+    assert actual == expected, f"Expected '{expected}', got '{actual}'"
+    print("✅ Test passed: hello.py outputs correct greeting")
 
 if __name__ == "__main__":
-    test_hello_output()
-    print("All tests passed!")
+    test_hello()
