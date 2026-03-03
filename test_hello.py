@@ -9,7 +9,7 @@ def test_hello():
         [sys.executable, "hello.py"],
         capture_output=True,
         text=True,
-        cwd="/Users/majordomo/clawd/test-workflow"
+        cwd="/tmp/test-workflow"
     )
     
     expected = "Hello from Minimax Worker!"
